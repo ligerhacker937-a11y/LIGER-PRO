@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoesLiveWallpapers.com - Best Live Wallpapers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+
+        /* Wallpapers Grid */
+        .wallpapers {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            color: white;
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .wallpaper-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .wallpaper-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .wallpaper-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .wallpaper-card:hover .wallpaper-img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: #4ecdc4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background: #45b7aa;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255,255,255,0.95);
+            padding: 80px 0;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 30px;
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .contact h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .contact p, .contact a {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .contact a {
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Owner Section */
+        .owner {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .owner-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            border: 8px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .owner h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Domain Info */
+        .domain-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            color: white;
+        }
+
+        .domain-info h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .wallpaper-card:nth-child(1) { animation: float 6s ease-in-out infinite; }
+        .wallpaper-card:nth-child(2) { animation: float 6s ease-in-out infinite 1s; }
+        .wallpaper-card:nth-child(3) { animation: float 6s ease-in-out infinite 2s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">👟 ShoesLiveWallpapers.com</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#wallpapers">Wallpapers</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>🔥 Best Shoes Live Wallpapers</h1>
+            <p>Download Premium Live Wallpapers for Free!</p>
+            <a href="#wallpapers" class="cta-btn">🚀 Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Wallpapers Section -->
+    <section id="wallpapers" class="wallpapers">
+        <div class="container">
+            <h2 class="section-title">Featured Live Wallpapers</h2>
+            <div class="grid">
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nike Air Jordan" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Nike Air Jordan 1</h3>
+                        <p class="card-desc">High quality live wallpaper with smooth animations</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Adidas Yeezy" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Adidas Yeezy Boost</h3>
+                        <p class="card-desc">Premium 4K live wallpaper with lighting effects</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sneakers Collection" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sneakers Collection</h3>
+                        <p class="card-desc">Animated sneaker rotation with reflections</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1606890658317-7d14490b76fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Shoes" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Luxury Shoes Live</h3>
+                        <p class="card-desc">Elegant live wallpaper with particle effects</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1575966359902-3481d9d9f2d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sports Shoes" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sports Performance</h3>
+                        <p class="card-desc">Dynamic sports shoes with motion blur</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card">
+                    <img src="https://images.unsplash.com/photo-1605348532763-0fdc0a5a4950?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Classic Sneakers" class="wallpaper-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Classic Sneakers</h3>
+                        <p class="card-desc">Retro style live wallpaper with vintage effects</p>
+                        <button class="download-btn">📥 Download Free</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: #333; margin-bottom: 50px;">📞 Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone Number</h3>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p><a href="tel:+919876543211">+91 98765 43211</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:support@shoeslivewallpapers.com">support@shoeslivewallpapers.com</a></p>
+                    <p><a href="mailto:info@shoeslivewallpapers.com">info@shoeslivewallpapers.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/919876543210">+91 98765 43210</a></p>
+                    <p>24/7 Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner Section -->
+    <section id="about" class="owner">
+        <div class="container">
+            <img src="https:///photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Website Owner" class="owner-img">
+            <h2>👨‍💼 liger</h2>
+            <p style="font-size: 1.3em; margin-bottom: 20px;">Founder & CEO</p>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 1.1em;">Passionate about shoes and technology. Creating the best live wallpapers for sneaker lovers worldwide!</p>
+        </div>
+    </section>
+
+    <!-- Domain Info -->
+    <section class="domain-info">
+        <div class="container">
+            <h3>🎉 FREE DOMAIN AVAILABLE</h3>
+            <p style="font-size: 1.5em; margin-bottom: 20px;">shoeslivewallpapers.com</p>
+            <p>✅ Free Hosting | ✅ Free SSL | ✅ Free Domain for 1 Year</p>
+            <a href="#" class="cta-btn" style="margin-top: 20px;">Claim Your Free Domain</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ShoesLiveWallpapers.com - All Rights Reserved | Made with ❤️ for Sneaker Lovers</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Download button functionality
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('🎉 Download started! Check your downloads folder.\n\nPremium quality live wallpaper coming soon!');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
